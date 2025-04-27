@@ -1,0 +1,50 @@
+<div *ngFor="let item of data">
+  <h3>{{ item.title }}</h3>
+  <p>{{ item.description }}</p>
+  <small>ID: {{ item.id }}</small>
+  <hr />
+</div>
+
+<section>
+  <h2>Get a Single Post by ID</h2>
+  <input type="text" [(ngModel)]="fetchId" placeholder="Enter Post ID" />
+  <button (click)="getSinglePost()">Fetch Post</button>
+</section>
+
+<hr />
+
+<section>
+  <p *ngIf="data.length === 0">🚫 No posts to display.</p>
+</section>
+<section>
+  <h2>Add a New Post</h2>
+
+  <label>
+    Title:
+    <input type="text" [(ngModel)]="newTitle" placeholder="Post title" />
+  </label>
+  <br />
+
+  <label>
+    Description:
+    <textarea
+      rows="3"
+      [(ngModel)]="newDescription"
+      placeholder="Post description"
+    ></textarea>
+  </label>
+  <br />
+
+  <button (click)="addNewPost()">Add Post</button>
+</section>
+<section>
+  <h2>Delete a Post by ID</h2>
+  <input
+    type="text"
+    [(ngModel)]="deleteId"
+    placeholder="Enter Post ID to delete"
+  />
+  <button (click)="deletePost()">Delete Post</button>
+</section>
+
+<hr />
